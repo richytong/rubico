@@ -102,4 +102,25 @@ tap.if = (predicate, func) => function tappingIf(...args) {
   return args[0]
 }
 
+/**
+ * @name tap.once
+ *
+ * @synopsis
+ * ```coffeescript [specscript]
+ * tap.once(func function) -> onlyRunsOnce function
+ * ```
+ *
+ * @description
+ * `tap` that executes a function only once.
+ */
+tap.once = function tapOnce(func) {
+  let didCall = false
+  return function tappingOnce(...args) {
+    if (!didCall) {
+      didCall = true
+      return func(...args)
+    }
+  }
+}
+
 module.exports = tap

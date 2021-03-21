@@ -565,6 +565,19 @@ describe('rubico', () => {
     })
   })
 
+  describe('tap.once', () => {
+    it('tap.once(func function) -> onlyExecutesOnce function', async () => {
+      let count = 0
+      const incOnce = tap.once(() => {
+        count += 1
+      })
+      incOnce()
+      incOnce()
+      incOnce()
+      assert.strictEqual(count, 1)
+    })
+  })
+
   describe('tryCatch', () => {
     it('tries a sync function and catches with a sync function', async () => {
       const errProp = (err, x) => { err.x = x; return err }
