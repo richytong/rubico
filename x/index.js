@@ -25,6 +25,7 @@ const trace = require('./trace')
 const unionWith = require('./unionWith')
 const uniq = require('./uniq')
 const values = require('./values')
+const when = require('./when')
 
 const rubicoX = {
   callProp,
@@ -54,6 +55,7 @@ const rubicoX = {
   unionWith,
   uniq,
   values,
+  when,
 }
 
 module.exports = rubicoX
